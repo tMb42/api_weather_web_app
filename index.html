@@ -19,8 +19,8 @@
                         type="text" 
                         id="userLocation" 
                         placeholder="Search location" 
-                        onclick="findUserLocation()"
-                    />
+                        
+                    />                    
                     <select 
                         class="converter" 
                         id="converter" 
@@ -28,8 +28,9 @@
                         <option>°F</option>
                         <option>°C</option>
                     </select>
-                    <i class="fa fa-search"></i>
+                    <i class="fa fa-search" onclick="findUserLocation()"></i>
                 </div>
+               
                 <div class="weatherIcon"></div>
                 <h2 class="temperature"></h2>
                 <div class="feelLike"></div>
@@ -55,11 +56,11 @@
                     <div class="sun">
                         <span>
                             <i class="fa-solid fa-sun"></i>
-                            <p><span id="SRValue">Sunrise</span></p>
+                            <p><span id="SRValue"></span>Sunrise</p>
                         </span>
                         <span>
                             <i class="fa-regular fa-sun"></i>
-                            <p><span id="SSValue">Sunset</span></p>
+                            <p><span id="SSValue"></span>Sunset</p>
                         </span>
                     </div>
                     <div class="cloud">

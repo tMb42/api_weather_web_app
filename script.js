@@ -20,9 +20,10 @@ Forecast = document.querySelector(".Forecast");
 
 // https://openweathermap.org/
 
-WEATHER_API_ENDPOINT = ``;
+WEATHER_API_ENDPOINT=``;
 
 WEATHER_DATA_ENDPOINT=``;
+
 
 function findUserLocation(){
     Forecast.innerHTML="";
@@ -30,7 +31,7 @@ function findUserLocation(){
     .then((response)=>response.json())
     .then((data)=>{
         if(data.cod !='' & data.cod !=200){
-            alert(data.message);
+            // alert(data.message);
             return;
         }
         // https://openweathermap.org/weather-conditions
@@ -56,13 +57,14 @@ function findUserLocation(){
             date.innerHTML = getLongFormatDateTime(data.current.dt, data.timezone_offset, options);
 
             HValue.innerHTML = Math.round(data.current.humidity)+ "<span>%</span>";
-            WValue.innerHTML = (data.current.wind_speed).toFixed(2)+ " <span>m</span>";
+            WValue.innerHTML = (data.current.wind_speed).toFixed(2)+ " <span>m/s</span>";
             
             const options1 = {
                 hour: "numeric",
                 minute: "numeric",
                 hour12: true,
             };
+           
             SRValue.innerHTML = getLongFormatDateTime(data.current.sunrise, data.timezone_offset, options1);
             SSValue.innerHTML = getLongFormatDateTime(data.current.sunset, data.timezone_offset, options1);
 
@@ -92,13 +94,13 @@ function findUserLocation(){
     });
 }
 
-    function formatUnixTime(dtvalue, offset, options={}) {
-        const date = new Date((dtvalue + offset) * 1000);
-        return date.toLocaleDateString([], {timeZone: "UTC", ...options});
+    function formatUnixTime(dtValue, offSet, options = {}) {
+        const date = new Date((dtValue + offSet) * 1000);
+        return date.toLocaleTimeString([], {timeZone: "UTC", ...options});
     }
 
-    function getLongFormatDateTime(dtvalue, offset, options) {
-        return formatUnixTime(dtvalue, offset, options);
+    function getLongFormatDateTime(dtValue, offSet, options) {
+        return formatUnixTime(dtValue, offSet, options);
     }
 
     function temparatureConverter(temp){
