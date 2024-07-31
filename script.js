@@ -20,9 +20,9 @@ Forecast = document.querySelector(".Forecast");
 
 // https://openweathermap.org/
 
-WEATHER_API_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather?appid=a5bb4718b30b6f58f58697997567fffa&q=`;
+WEATHER_API_ENDPOINT = ``;
 
-WEATHER_DATA_ENDPOINT=`https://api.openweathermap.org/data/2.5/onecall?appid=a5bb4718b30b6f58f58697997567fffa&exclude=minutely&units=metric&`;
+WEATHER_DATA_ENDPOINT=``;
 
 function findUserLocation(){
     Forecast.innerHTML="";
