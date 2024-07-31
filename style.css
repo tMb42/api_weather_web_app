@@ -29,7 +29,7 @@ body{
 .weather-input .description,
 .weather-input .date,
 .weather-input .city{
-    padding: 10px 0px;
+    padding: 5px 0px;
 }
 .temperature{
     display: flex;

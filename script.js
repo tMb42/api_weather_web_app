@@ -43,8 +43,8 @@ function findUserLocation(){
         fetch(WEATHER_DATA_ENDPOINT + `lon=${data.coord.lon}&lat=${data.coord.lat}`)
         .then((response)=>response.json())
         .then((data)=>{
-            temperature.innerHTML = temparatureConverter(data.current.temp);
-            feelLike.innerHTML = "Feels Like " + data.current.feels_like;
+            temperature.innerHTML = temparatureConverter(Math.round(data.current.temp));
+            feelLike.innerHTML = "Feels Like " + temparatureConverter(Math.round(data.current.feels_like));
             description.innerHTML =`<i class="fa-brands fa-cloudversify"></i> &nbsp;`+data.current.weather[0].description;
             const options = {
                 weekday: "long",
@@ -86,7 +86,7 @@ function findUserLocation(){
 
                 div.innerHTML+= `<img class="weatherDailyIcon" src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png" />`
                 div.innerHTML+= `<p class="forecast-desc">${weather.weather[0].description}</p>`
-                div.innerHTML+= `<span>Min: <span>${temparatureConverter(weather.temp.min)} &nbsp; Max: </span>${temparatureConverter(weather.temp.max)}</span>`
+                div.innerHTML+= `<span>Min: <span>${temparatureConverter(Math.round(weather.temp.min))} &nbsp; Max: </span>${temparatureConverter(Math.round(weather.temp.max))}</span>`
                 Forecast.append(div);
             });
             console.log(data);
@@ -110,7 +110,7 @@ function findUserLocation(){
         if(converter.value == "°C"){
             message=tempValue+ "<span>"+"\xB0C</span>";
         }else{
-            let ctof = (((tempValue*9)/5)+32).toFixed(2)
+            let ctof = Math.round(((tempValue*9)/5)+32)
             message = ctof+ "<span>"+"\xB0F</span>";
         }
         return message;
