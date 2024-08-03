@@ -19,25 +19,32 @@
                         type="text" 
                         id="userLocation" 
                         placeholder="Search location" 
-                        
                     />                    
                     <select 
                         class="converter" 
                         id="converter" 
                         >
-                        <option>°F</option>
                         <option>°C</option>
+                        <option>°F</option>
                     </select>
                     <i class="fa fa-search" onclick="findUserLocation()"></i>
                 </div>
-               
+
+                <!-- Not found in search message -->
+                <div class="Message"></div>  
+
                 <div class="weatherIcon"></div>
                 <h2 class="temperature"></h2>
                 <div class="feelLike"></div>
                 <div class="description"></div>
-                <hr/>
+
+                <hr style="color:gold"/>
+
                 <div class="date"></div>
                 <div class="city"></div>
+
+                <!-- Create multiple raindrop elements -->
+                <div class="rain-container"></div>
             </div>
 
             <div class="weather-output">
@@ -83,6 +90,7 @@
                 <br/>
 
                 <h2 class="heading">This Week</h2>
+                
                 <div class="Forecast"></div>
             </div>
         </div>
